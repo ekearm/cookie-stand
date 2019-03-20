@@ -9,6 +9,7 @@ var randomCustomer = function(maxCustomer, minCustomer){
 
 var mainTable = document.getElementById('tablebody');
 var tableHead = document.createElement('thead');
+
 mainTable.appendChild(tableHead);
 
 var tr = document.createElement('tr');
@@ -84,6 +85,9 @@ var storeListElement = document.getElementById('main2');
 /*|       Constructor     |*/
 /*-------------------------*/
 
+
+
+
 var pikeAndFirst = new StoreData('First & Pike', 23, 65, 6.3);
 
 var seaTac = new StoreData('SeaTac Airport', 3, 24, 1.2);
@@ -94,6 +98,12 @@ var capitalHill = new StoreData('Capital Hill', 20, 38, 3.7);
 
 var alki = new StoreData('Alki', 2, 16, 1.2);
 
-for (var i = 0; i < storeInformation.length; i++){
-  storeInformation[i].render(storeListElement);
+var storeForm = document.getElementById('storeCreator');
+
+/*var storeCreationHandler = function(
+  onC
+)*/
+
+for (var j = 0; j < storeInformation.length; j++){
+  storeInformation[j].render(storeListElement);
 }
