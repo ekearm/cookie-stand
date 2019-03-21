@@ -56,8 +56,11 @@ var htmlWriter = function(){
     td1.textContent = soldPostition[k];
     trBody.appendChild(td1);
   }
-  const reducer = (accumulator, currentValue) => accumulator + currentValue;
-  var sum = soldPostition.reduce(reducer);
+  
+  var sum = soldPostition.reduce(add);
+  function add (a, b) {
+    return a + b;
+  }
 
   var tdTotal = document.createElement('td');
   tdTotal.textContent = sum;
