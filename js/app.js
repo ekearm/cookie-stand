@@ -88,24 +88,25 @@ var storeListElement = document.getElementById('main2');
 /*|       Constructor     |*/
 /*-------------------------*/
 
+//Handle Events
+var shopForm = document.getElementById('storeForm');
 
+var addCookieShop = function(clickEvent){
+  clickEvent.preventDefault();
 
+  var name = event.target.name.value;
+  var minCustomer = event.target.minCustomer.value;
+  var maxCustomer = event.target.maxCustomer.value;
+  var averageCookieSold = event.target.avgerageCookieSold.value;
 
-var pikeAndFirst = new StoreData('First & Pike', 23, 65, 6.3);
+  event.target.reset();
 
-var seaTac = new StoreData('SeaTac Airport', 3, 24, 1.2);
+  var shop = new StoreData(name, minCustomer, maxCustomer, averageCookieSold);
+  shop.render(document.getElementById(tBody));
 
-var seattleCenter = new StoreData('Seattle Center', 11, 38, 3.7);
-
-var capitalHill = new StoreData('Capital Hill', 20, 38, 3.7);
-
-var alki = new StoreData('Alki', 2, 16, 1.2);
-
-var storeForm = document.getElementById('storeCreator');
-
-/*var storeCreationHandler = function(
-  onC
-)*/
+};
+//Listener
+shopForm.addEventListener('submit', addCookieShop);
 
 for (var j = 0; j < storeInformation.length; j++){
   storeInformation[j].render(storeListElement);
