@@ -1,471 +1,121 @@
-var firstPike = {
-  name: 'First & Pike',
-  minCustomer: 23,
-  maxCustomer: 65,
-  avgCookieSale: 6.3,
-  hoursOpen: function() {
-    var time = ['am', 'pm'];
-    var operation = [];
-    for(var i = 6; i <= 20; i++){
-      if(i < 12){
-        var timeNow = i + time[0];
-        operation.push(timeNow);
-      } else if (i === 12){
-        var noon = i + time[1];
-        operation.push(noon);
-      } else {
-        switch(i > 12) {
-        case i === 13:
-          var onePM = `1${time[1]}`;
-          operation.push(onePM);
-          break;
-        case i === 14:
-          var twoPM = `2${time[1]}`;
-          operation.push(twoPM);
-          break;
-        case i === 15:
-          var threePM = `3${time[1]}`;
-          operation.push(threePM);
-          break;
-        case i === 16:
-          var fourPM = `4${time[1]}`;
-          operation.push(fourPM);
-          break;
-        case i === 17:
-          var fivePM = `5${time[1]}`;
-          operation.push(fivePM);
-          break;
-        case i === 18:
-          var sixPM = `6${time[1]}`;
-          operation.push(sixPM);
-          break;
-        case i === 19:
-          var sevenPM = `7${time[1]}`;
-          operation.push(sevenPM);
-          break;
-        case i === 20:
-          var atePM = `8${time[1]}`;
-          operation.push(atePM);
-          break;
-        }
-      }
-    }
-    var totalcookies = Math.ceil(this.randomCustomer() * this.avgCookieSale);
-    var soldPostition = [];
-    var divided = Math.floor(totalcookies / 15);
-    const reducer = (accumulator, currentValue) => accumulator + currentValue;
-    for(var j = 0; j < 15; j++){
-      soldPostition.push(divided);
-    }
-
-    var totalcookiesSold = soldPostition.reduce(reducer) + ' cookies';
-    console.log(totalcookiesSold);
-    console.log(soldPostition);
-
-    for (var k = 0; k < 15; k++){
-      console.log(operation[k] + ': ' + soldPostition[k] +' cookies');
-      var message = operation[k] + ': ' + soldPostition[k] +' cookies';
-    }
-    return message;
-  },
-  randomCustomer: function() {
-    var randomPerson = Math.floor(Math.random() * (this.maxCustomer - this.minCustomer) + this.minCustomer);
-    return randomPerson;
-  },
+/*-------------------------*/
+/*|         Global        |*/
+/*|       Variables       |*/
+/*-------------------------*/
+var hoursOfOperation = ['6am','7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+var randomCustomer = function(maxCustomer, minCustomer){
+  return Math.floor(Math.random() * (maxCustomer - minCustomer) + minCustomer);
 };
+/*-------------------------*/
+/*|         Table         |*/
+/*|        Creation       |*/
+/*-------------------------*/
+var mainTable = document.getElementById('tablebody');
 
-var seaTacAirport = {
-  name: 'SeaTac Airport',
-  minCustomer: 3,
-  maxCustomer: 24,
-  avgCookieSale: 1.2,
-  hoursOpen: function() {
-    var time = ['am', 'pm'];
-    var operation = [];
-    for(var i = 6; i <= 20; i++){
-      if(i < 12){
-        var timeNow = i + time[0];
-        operation.push(timeNow);
-      } else if (i === 12){
-        var noon = i + time[1];
-        operation.push(noon);
-      } else {
-        switch(i > 12) {
-        case i === 13:
-          var onePM = `1${time[1]}`;
-          operation.push(onePM);
-          break;
-        case i === 14:
-          var twoPM = `2${time[1]}`;
-          operation.push(twoPM);
-          break;
-        case i === 15:
-          var threePM = `3${time[1]}`;
-          operation.push(threePM);
-          break;
-        case i === 16:
-          var fourPM = `4${time[1]}`;
-          operation.push(fourPM);
-          break;
-        case i === 17:
-          var fivePM = `5${time[1]}`;
-          operation.push(fivePM);
-          break;
-        case i === 18:
-          var sixPM = `6${time[1]}`;
-          operation.push(sixPM);
-          break;
-        case i === 19:
-          var sevenPM = `7${time[1]}`;
-          operation.push(sevenPM);
-          break;
-        case i === 20:
-          var atePM = `8${time[1]}`;
-          operation.push(atePM);
-          break;
-        }
-      }
-    }
-    var totalcookies = Math.ceil(this.randomCustomer() * this.avgCookieSale);
-    var soldPostition = [];
-    var divided = Math.floor(totalcookies / 15);
-    const reducer = (accumulator, currentValue) => accumulator + currentValue;
-    for(var j = 0; j < 15; j++){
-      soldPostition.push(divided);
-    }
+var tableHead = document.createElement('thead');
+mainTable.appendChild(tableHead);
 
-    var totalcookiesSold = soldPostition.reduce(reducer) + ' cookies';
-    console.log(totalcookiesSold);
-    console.log(soldPostition);
+var tr = document.createElement('tr');
+tableHead.appendChild(tr);
 
-    for (var k = 0; k < 15; k++){
-      console.log(operation[k] + ': ' + soldPostition[k] +' cookies');
-      var message = operation[k] + ': ' + soldPostition[k] +' cookies';
-    }
-    return message;
-  },
-  randomCustomer: function() {
-    var randomPerson = Math.floor(Math.random() * (this.maxCustomer - this.minCustomer) + this.minCustomer);
-    return randomPerson;
-  },
-};
+var th = document.createElement('th');
+tr.appendChild(th);
 
-var seattleCenter = {
-  name: 'Seattle Center',
-  minCustomer: 11,
-  maxCustomer: 38,
-  avgCookieSale: 3.7,
-  hoursOpen: function() {
-    var time = ['am', 'pm'];
-    var operation = [];
-    for(var i = 6; i <= 20; i++){
-      if(i < 12){
-        var timeNow = i + time[0];
-        operation.push(timeNow);
-      } else if (i === 12){
-        var noon = i + time[1];
-        operation.push(noon);
-      } else {
-        switch(i > 12) {
-        case i === 13:
-          var onePM = `1${time[1]}`;
-          operation.push(onePM);
-          break;
-        case i === 14:
-          var twoPM = `2${time[1]}`;
-          operation.push(twoPM);
-          break;
-        case i === 15:
-          var threePM = `3${time[1]}`;
-          operation.push(threePM);
-          break;
-        case i === 16:
-          var fourPM = `4${time[1]}`;
-          operation.push(fourPM);
-          break;
-        case i === 17:
-          var fivePM = `5${time[1]}`;
-          operation.push(fivePM);
-          break;
-        case i === 18:
-          var sixPM = `6${time[1]}`;
-          operation.push(sixPM);
-          break;
-        case i === 19:
-          var sevenPM = `7${time[1]}`;
-          operation.push(sevenPM);
-          break;
-        case i === 20:
-          var atePM = `8${time[1]}`;
-          operation.push(atePM);
-          break;
-        }
-      }
-    }
-    var totalcookies = Math.ceil(this.randomCustomer() * this.avgCookieSale);
-    var soldPostition = [];
-    var divided = Math.floor(totalcookies / 15);
-    const reducer = (accumulator, currentValue) => accumulator + currentValue;
-    for(var j = 0; j < 15; j++){
-      soldPostition.push(divided);
-    }
+for (var i = 0; i < hoursOfOperation.length; i++){
+  var th1 = document.createElement('th');
+  th1.textContent= hoursOfOperation[i];
+  tr.appendChild(th1);
+}
 
-    var totalcookiesSold = soldPostition.reduce(reducer) + ' cookies';
-    console.log(totalcookiesSold);
-    console.log(soldPostition);
+var thTotal = document.createElement('th');
+thTotal.textContent = 'Total';
+tr.appendChild(thTotal);
 
-    for (var k = 0; k < 15; k++){
-      console.log(operation[k] + ': ' + soldPostition[k] +' cookies');
-      var message = operation[k] + ': ' + soldPostition[k] +' cookies';
-    }
-    return message;
-  },
-  randomCustomer: function() {
-    var randomPerson = Math.floor(Math.random() * (this.maxCustomer - this.minCustomer) + this.minCustomer);
-    return randomPerson;
-  },
-};
 
-var capitolHill = {
-  name: 'Capitol Hill',
-  minCustomer: 20,
-  maxCustomer: 38,
-  avgCookieSale: 2.3,
-  hoursOpen: function() {
-    var time = ['am', 'pm'];
-    var operation = [];
-    for(var i = 6; i <= 20; i++){
-      if(i < 12){
-        var timeNow = i + time[0];
-        operation.push(timeNow);
-      } else if (i === 12){
-        var noon = i + time[1];
-        operation.push(noon);
-      } else {
-        switch(i > 12) {
-        case i === 13:
-          var onePM = `1${time[1]}`;
-          operation.push(onePM);
-          break;
-        case i === 14:
-          var twoPM = `2${time[1]}`;
-          operation.push(twoPM);
-          break;
-        case i === 15:
-          var threePM = `3${time[1]}`;
-          operation.push(threePM);
-          break;
-        case i === 16:
-          var fourPM = `4${time[1]}`;
-          operation.push(fourPM);
-          break;
-        case i === 17:
-          var fivePM = `5${time[1]}`;
-          operation.push(fivePM);
-          break;
-        case i === 18:
-          var sixPM = `6${time[1]}`;
-          operation.push(sixPM);
-          break;
-        case i === 19:
-          var sevenPM = `7${time[1]}`;
-          operation.push(sevenPM);
-          break;
-        case i === 20:
-          var atePM = `8${time[1]}`;
-          operation.push(atePM);
-          break;
-        }
-      }
-    }
-    var totalcookies = Math.ceil(this.randomCustomer() * this.avgCookieSale);
-    var soldPostition = [];
-    var divided = Math.floor(totalcookies / 15);
-    const reducer = (accumulator, currentValue) => accumulator + currentValue;
-    for(var j = 0; j < 15; j++){
-      soldPostition.push(divided);
-    }
+var tBody = document.createElement('tbody');
+mainTable.appendChild(tBody);
 
-    var totalcookiesSold = soldPostition.reduce(reducer) + ' cookies';
-    console.log(totalcookiesSold);
-    console.log(soldPostition);
+/*-------------------------*/
+/*|       Functions       |*/
+/*|                       |*/
+/*-------------------------*/
 
-    for (var k = 0; k < 15; k++){
-      console.log(operation[k] + ': ' + soldPostition[k] +' cookies');
-      var message = operation[k] + ': ' + soldPostition[k] +' cookies';
-    }
-    return message;
-  },
-  randomCustomer: function() {
-    var randomPerson = Math.floor(Math.random() * (this.maxCustomer - this.minCustomer) + this.minCustomer);
-    return randomPerson;
-  },
-  randomCustomer: function() {
-    var randomPerson = Math.floor(Math.random() * (this.maxCustomer - this.minCustomer) +this.minCustomer);
-    return randomPerson;
+/*Writes the data to the table */
+
+var htmlWriter = function(){
+
+  var soldPostition = [];
+
+  for (var j = 0; j < hoursOfOperation.length; j++){
+    var totalCookies = Math.ceil(randomCustomer(this.maxCustomer, this.minCustomer) * this.averageCookieSold);
+    soldPostition.push(totalCookies);
   }
-};
+  console.log(soldPostition);
 
-var alki = {
-  name: 'Alki',
-  minCustomer: 2,
-  maxCustomer: 16,
-  avgCookieSale: 4.6,
-  hoursOpen: function() {
-    var time = ['am', 'pm'];
-    var operation = [];
-    for(var i = 6; i <= 20; i++){
-      if(i < 12){
-        var timeNow = i + time[0];
-        operation.push(timeNow);
-      } else if (i === 12){
-        var noon = i + time[1];
-        operation.push(noon);
-      } else {
-        switch(i > 12) {
-        case i === 13:
-          var onePM = `1${time[1]}`;
-          operation.push(onePM);
-          break;
-        case i === 14:
-          var twoPM = `2${time[1]}`;
-          operation.push(twoPM);
-          break;
-        case i === 15:
-          var threePM = `3${time[1]}`;
-          operation.push(threePM);
-          break;
-        case i === 16:
-          var fourPM = `4${time[1]}`;
-          operation.push(fourPM);
-          break;
-        case i === 17:
-          var fivePM = `5${time[1]}`;
-          operation.push(fivePM);
-          break;
-        case i === 18:
-          var sixPM = `6${time[1]}`;
-          operation.push(sixPM);
-          break;
-        case i === 19:
-          var sevenPM = `7${time[1]}`;
-          operation.push(sevenPM);
-          break;
-        case i === 20:
-          var atePM = `8${time[1]}`;
-          operation.push(atePM);
-          break;
-        }
-      }
-    }
-    var totalcookies = Math.ceil(this.randomCustomer() * this.avgCookieSale);
-    var soldPostition = [];
-    var divided = Math.floor(totalcookies / 15);
-    const reducer = (accumulator, currentValue) => accumulator + currentValue;
-    for(var j = 0; j < 15; j++){
-      soldPostition.push(divided);
-    }
+  var trBody = document.createElement('tr');
+  tBody.appendChild(trBody);
+  var td = document.createElement('td');
+  td.textContent = this.name;
+  trBody.appendChild(td);
 
-    var totalcookiesSold = soldPostition.reduce(reducer) + ' cookies';
-    console.log(totalcookiesSold);
-    console.log(soldPostition);
-
-    for (var k = 0; k < 15; k++){
-      console.log(operation[k] + ': ' + soldPostition[k] +' cookies');
-      var message = operation[k] + ': ' + soldPostition[k] +' cookies';
-    }
-    return message;
-  },
-  randomCustomer: function() {
-    var randomPerson = Math.floor(Math.random() * (this.maxCustomer - this.minCustomer) + this.minCustomer);
-    return randomPerson;
-  },
-  randomCustomer: function() {
-    var randomPerson = Math.floor(Math.random() * (this.maxCustomer - this.minCustomer) +this.minCustomer);
-    return randomPerson;
+  for (var k = 0; k < soldPostition.length; k++){
+    var td1 = document.createElement('td');
+    td1.textContent = soldPostition[k];
+    trBody.appendChild(td1);
   }
+  //calculates the total
+  var sum = soldPostition.reduce(add);
+  function add (a, b) {
+    return a + b;
+  }
+  //writes the totals to the table
+  var tdTotal = document.createElement('td');
+  tdTotal.textContent = sum;
+  trBody.appendChild(tdTotal);
 };
 
-// console.log(firstPike.hoursOpen());
-// console.log(seaTacAirport.hoursOpen());
-// console.log(seattleCenter.hoursOpen());
-// console.log(capitolHill.hoursOpen());
-// console.log(alki.hoursOpen());
+/*Object structure */
+function StoreData(name, minCustomer, maxCustomer, averageCookieSold){
+  this.name = name;
+  this.minCustomer = minCustomer;
+  this.maxCustomer = maxCustomer;
+  this.averageCookieSold = averageCookieSold;
 
-var mainElement = document.getElementById('main2');
-//Pike Place
-var section = document.createElement('pikeplace');
-mainElement.appendChild(section);
-var h1 = document.createElement('h1');
-h1.textContent = `${firstPike.name}`;
-section.appendChild(h1);
-var pikeList = document.createElement('ol');
-section.appendChild(pikeList);
-for (var i = 0; i < 15; i++){
-  var pikeListItems = document.createElement('li');
-  pikeListItems.textContent = firstPike.hoursOpen();
-  pikeList.appendChild(pikeListItems);
+  storeInformation.push(this);
 }
 
-//Setac
-var seatacSection = document.createElement('seaTac');
-mainElement.appendChild(seatacSection);
-var seaH1 = document.createElement('h1');
-seaH1.textContent = `${seaTacAirport.name}`;
-section.appendChild(seaH1);
+StoreData.prototype.render = htmlWriter;
 
-var seaList = document.createElement('ol');
-seatacSection.appendChild(seaList);
+var storeInformation =[];
 
-for (var j = 0; j < 15; j++){
-  var seaListItems = document.createElement('li');
-  seaListItems.textContent = seaTacAirport.hoursOpen();
-  seaList.appendChild(seaListItems);
-}
-//var pikeListItems = document.createElement('li');
+var storeListElement = document.getElementById('main2');
 
-var seaCentSection = document.createElement('seaCent');
-mainElement.appendChild(seaCentSection);
-var seaCentH1 = document.createElement('h1');
-seaCentH1.textContent = `${seattleCenter.name}`;
-//console.log(h1.textContent);
-seaCentSection.appendChild(seaCentH1);
+/*-------------------------*/
+/*|       Utilize the     |*/
+/*|       Constructor     |*/
+/*|     and event handler |*\
+/*-------------------------*/
 
-var seaCentList = document.createElement('ol');
-seaCentSection.appendChild(seaCentList);
+//Handle Events
+var shopForm = document.getElementById('storeForm');
 
-for (var k = 0; k < 15; k++){
-  var seaCentListItems = document.createElement('li');
-  seaCentListItems.textContent = seattleCenter.hoursOpen();
-  seaCentList.appendChild(seaCentListItems);
-}
+var addCookieShop = function(clickEvent){
+  clickEvent.preventDefault();
 
-var capSection = document.createElement('cap');
-mainElement.appendChild(capSection);
-var capH1 = document.createElement('h1');
-capH1.textContent = `${capitolHill.name}`;
-capSection.appendChild(capH1);
+  var name = event.target.name.value;
+  var minCustomer = event.target.minCustomer.value;
+  var maxCustomer = event.target.maxCustomer.value;
+  var averageCookieSold = event.target.avgerageCookieSold.value;
 
-var capList = document.createElement('ol');
-capSection.appendChild(capList);
+  event.target.reset();
 
-for (var l = 0; l < 15; l++){
-  var capListItems = document.createElement('li');
-  capListItems.textContent = capitolHill.hoursOpen();
-  capList.appendChild(capListItems);
-}
+  var shop = new StoreData(name, minCustomer, maxCustomer, averageCookieSold);
+  shop.render(document.getElementById(tBody));
 
-var alkiSection = document.createElement('alki');
-mainElement.appendChild(alkiSection);
-var alkiH1 = document.createElement('h1');
-alkiH1.textContent = `${alki.name}`;
-alkiSection.appendChild(alkiH1);
+};
+//Listener
+shopForm.addEventListener('submit', addCookieShop);
 
-var alkiList = document.createElement('ol');
-alkiSection.appendChild(alkiList);
-
-for (var m = 0; m < 15; m++){
-  var alkiListItems = document.createElement('li');
-  alkiListItems.textContent = alki.hoursOpen();
-  alkiList.appendChild(alkiListItems);
+for (var j = 0; j < storeInformation.length; j++){
+  storeInformation[j].render(storeListElement);
 }
