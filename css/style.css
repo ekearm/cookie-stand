@@ -1,0 +1,53 @@
+header{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 20%;
+  grid-template-areas: 
+                      "C1R1 C2R2 C3R1 C4R1"
+                      "C1R2 C2R2 C3R2 C4R2"
+                      "C1R3 C2R3 C3R3 C4R3";
+  text-align: justify;
+}
+#jumbotron {
+  grid-column-start: C1R1;
+  grid-column-end: C4R1;
+  grid-row-start: C1R1;
+  grid-row-end: C4R3;
+  justify-self: stretch;
+  width: 100%;
+  height: auto;
+  z-index: -1;
+}
+#title {
+  grid-column-start: C1R2;
+  grid-column-end: C4R1;
+  grid-row-start: C1R2;
+  grid-row-end: C4R3;
+  z-index: 0;
+  font-size: 6em;
+  color: silver;
+  z-index: 0;
+}
+
+nav{
+  width: 100%;
+  font-size: 2em;
+  text-align: center;
+
+  fill-opacity: 20%;
+  background-color: gray;
+  margin: .2;
+  position: fixed;
+}
+
+a{
+  text-align: center;
+}
+
+nav a:hover {
+  color: salmon;
+}
+
+a:active{
+ background-image: url(/assets/salmon.png);
+}
