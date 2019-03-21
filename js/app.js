@@ -85,19 +85,6 @@ var storeListElement = document.getElementById('main2');
 /*|       Constructor     |*/
 /*-------------------------*/
 
-
-
-/*
-var pikeAndFirst = new StoreData('First & Pike', 23, 65, 6.3);
-
-var seaTac = new StoreData('SeaTac Airport', 3, 24, 1.2);
-
-var seattleCenter = new StoreData('Seattle Center', 11, 38, 3.7);
-
-var capitalHill = new StoreData('Capital Hill', 20, 38, 3.7);
-
-var alki = new StoreData('Alki', 2, 16, 1.2);*/
-
 //Handle Events
 var shopForm = document.getElementById('storeForm');
 
