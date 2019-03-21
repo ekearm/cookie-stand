@@ -57,6 +57,10 @@ var htmlWriter = function(){
     trBody.appendChild(td1);
   }
   
+  var sum = soldPostition.reduce(add);
+  function add (a, b) {
+    return a + b;
+  }
 
   var tdTotal = document.createElement('td');
   tdTotal.textContent = sum;
