@@ -6,7 +6,10 @@ var hoursOfOperation = ['6am','7am', '8am', '9am', '10am', '11am', '12pm', '1pm'
 var randomCustomer = function(maxCustomer, minCustomer){
   return Math.floor(Math.random() * (maxCustomer - minCustomer) + minCustomer);
 };
-
+/*-------------------------*/
+/*|         Table         |*/
+/*|        Creation       |*/
+/*-------------------------*/
 var mainTable = document.getElementById('tablebody');
 
 var tableHead = document.createElement('thead');
@@ -36,6 +39,9 @@ mainTable.appendChild(tBody);
 /*|       Functions       |*/
 /*|                       |*/
 /*-------------------------*/
+
+/*Writes the data to the table */
+
 var htmlWriter = function(){
 
   var soldPostition = [];
@@ -57,17 +63,18 @@ var htmlWriter = function(){
     td1.textContent = soldPostition[k];
     trBody.appendChild(td1);
   }
-  
+  //calculates the total
   var sum = soldPostition.reduce(add);
   function add (a, b) {
     return a + b;
   }
-
+  //writes the totals to the table
   var tdTotal = document.createElement('td');
   tdTotal.textContent = sum;
   trBody.appendChild(tdTotal);
 };
 
+/*Object structure */
 function StoreData(name, minCustomer, maxCustomer, averageCookieSold){
   this.name = name;
   this.minCustomer = minCustomer;
@@ -86,6 +93,7 @@ var storeListElement = document.getElementById('main2');
 /*-------------------------*/
 /*|       Utilize the     |*/
 /*|       Constructor     |*/
+/*|     and event handler |*\
 /*-------------------------*/
 
 //Handle Events
