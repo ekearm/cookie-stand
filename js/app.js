@@ -8,8 +8,8 @@ var randomCustomer = function(maxCustomer, minCustomer){
 };
 
 var mainTable = document.getElementById('tablebody');
-var tableHead = document.createElement('thead');
 
+var tableHead = document.createElement('thead');
 mainTable.appendChild(tableHead);
 
 var tr = document.createElement('tr');
