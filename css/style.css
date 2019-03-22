@@ -1,16 +1,18 @@
 header{
   display:grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 20%;
+  grid-template-rows: 20px 1fr 1fr 1fr 1fr;
   grid-template-areas: 
-                      "C1R1 C2R2 C3R1 C4R1"
+                      "nav nav nav nav"
+                      "C1R1 C2R1 C3R1 C4R1"
                       "C1R2 C2R2 C3R2 C4R2"
-                      "C1R3 C2R3 C3R3 C4R3";
-  text-align: justify;
+                      "C1R1 C2R1 C3R1 C4R3"
+                      "C1R2 C2R2 C3R2 C4R4";
 }
 #jumbotron {
+  justify-self: stretch;
   grid-column-start: C1R1;
-  grid-column-end: C4R1;
+  grid-column-end: nav;
   grid-row-start: C1R1;
   grid-row-end: C4R3;
   justify-self: stretch;
@@ -19,23 +21,26 @@ header{
   z-index: -1;
 }
 #title {
-  grid-column-start: C1R2;
-  grid-column-end: C4R1;
-  grid-row-start: C1R2;
+  grid-column-start: C2R3;
+  grid-column-end: C4R3;
+  grid-row-start: C2R3;
   grid-row-end: C4R3;
   z-index: 0;
-  font-size: 6em;
+  font-size: 3em;
   color: silver;
   z-index: 0;
 }
 
 nav{
+  grid-column-start: nav;
+  grid-column-end: nav;
+  grid-row-start: nav;
+  grid-row-end: nav;
   width: 100%;
   font-size: 2em;
-  text-align: center;
-
-  fill-opacity: 20%;
-  background-color: gray;
+  /*text-align: center;*/
+  background-color: rgba(119, 136, 153, .3);
+  
   margin: .2;
   position: fixed;
 }
@@ -50,4 +55,5 @@ nav a:hover {
 
 a:active{
  background-image: url(/assets/salmon.png);
+ 
 }
