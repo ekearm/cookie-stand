@@ -1,0 +1,197 @@
+/* pink = #fa6b6b
+	 orange = #ffbd59
+*/
+body {
+	background-image: url(assets/bg2.jpg);
+  background-position: center;
+  align-content: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+	background-size: cover;
+	background-color: #ffbd59;
+	color: #000000;
+  margin-top: 150px;
+  border-radius: 25px;
+	font-family: Arial, sans-serif;
+}
+
+.banner {
+  max-width: auto;
+  max-height: auto;
+  border-radius: 25px;
+  }
+
+figcaption {
+  font-size: small;
+}
+
+header {
+
+  background-color: #ffffff;
+  border-radius:25px 25px 25px 25px;
+  text-align: center;
+}
+
+#nav {
+    list-style-type: none;
+    width: auto;
+    padding: 5px;
+		margin: 0;
+		float: none;
+    background-color: #333;
+		border-radius: 25px 25px 25px 25px;
+		text-align: center;
+}
+
+ #nav li {
+	  float:none;
+		display: inline-block;
+}
+
+ #nav li a {
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+		text-decoration: none;
+
+}
+
+nav a:link {color:#ffffff;}
+nav a:visited {color: #bbbbbb;}
+nav a:hover {color: #ffbd59;}
+
+#nav li a:hover {
+    background-color: #111;
+		border-radius: 25px;
+}
+
+#wrapper {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+	background-color: #ffffff;
+	min-width: auto;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+  margin-top: auto;
+  border-radius: 25px;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 50px;
+	font-family: 'Caveat', cursive;
+  color: #000000;
+  margin:0px;
+  padding:0px;
+  text-align: center;
+  font-size: 40px;
+}
+
+/* ------------------------form css------------------------ */
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=number], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=float], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=submit] {
+  width: 100%;
+  background-color: #fa6b6b;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #fa6b6b;
+}
+
+#form {
+	width: 50%;
+  border-radius: 5px;
+  background-color: #ffbd59;
+  padding: 20px;
+}
+/* ------------------------------end form css--------------------------- */
+
+/* ------------------------------menu css--------------------------------- */
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+	margin-bottom: 20px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {
+	margin: 0 -5px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+	padding: 0 10px;
+}
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+/* ------------------------------end menu css--------------------------------- */
+#contentbox {
+  padding-left: 30px;
+	overflow: hidden;
+	border-top-left-radius:25px;
+  border-top-right-radius:25px;
+  border-bottom-right-radius:0px;
+  border-bottom-left-radius:0px;
+  width: inherit;
+  margin-top: 10px;
+  background-color: #eeeeee;
+}
+
+footer {
+	background-color: #eeeeee;
+	font-size: .60em;
+	font-style: italic;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	clear: both;
+  border-top-left-radius:0px;
+  border-top-right-radius:0px;
+  border-bottom-right-radius:25px;
+  border-bottom-left-radius:25px;
+}
